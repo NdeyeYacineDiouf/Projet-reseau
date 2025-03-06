@@ -1,29 +1,34 @@
 <?php
-session_start();
+// back/creeremploye.php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        $db = new PDO('mysql:host=localhost;dbname=smarttech;charset=utf8', 'root', '');
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Récupérer les données envoyées
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $telephone = $_POST['telephone'];
+    $poste = $_POST['poste'];
+    $departement = $_POST['departement'];
+    $date_embauche = $_POST['date_embauche'];
 
-        $stmt = $db->prepare("INSERT INTO employes 
-            (nom, prenom, email, poste, salaire, date_embauche, departement)
-            VALUES (?, ?, ?, ?, ?, ?, ?)");
-
-        $stmt->execute([
-            $_POST['nom'],
-            $_POST['prenom'],
-            $_POST['email'],
-            $_POST['poste'],
-            $_POST['salaire'],
-            $_POST['date_embauche'],
-            $_POST['departement']
-        ]);
-
-        $_SESSION['success'] = "Employé enregistré avec succès!";
-    } catch (PDOException $e) {
-        $_SESSION['error'] = "Erreur : " . $e->getMessage();
+    // Connexion à la base de données et insertion
+    $conn = new mysqli('localhost', 'root', 'passer', 'smarttech');
+    
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-    header('Location: employe_form.php');
-    exit();
+
+    $sql = "INSERT INTO employes (prenom, nom, email, telephone, poste, departement, date_embauche) 
+            VALUES ('$prenom', '$nom', '$email', '$telephone', '$poste', '$departement', '$date_embauche')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Nouvel employé créé avec succès!";
+    } else {
+        echo "Erreur: " . $sql . "<br>" . $conn->error;
+    }
+
+    $conn->close();
+} else {
+    echo "Méthode de requête invalide.";
 }
 ?>
