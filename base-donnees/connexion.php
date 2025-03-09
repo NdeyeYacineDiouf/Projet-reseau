@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $db   = "smarttech";
-$user = "admin@localhost";
+$user = "admin";
 $pass = "passer";
 
 try {
