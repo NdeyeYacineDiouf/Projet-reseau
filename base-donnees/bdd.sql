@@ -1,34 +1,34 @@
 CREATE DATABASE IF NOT EXISTS smarttech;
 USE smarttech;
 
-CREATE TABLE IF NOT EXISTS employes (
-    employe_id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE employes (
+    employe_id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE NOT NULL,
     telephone VARCHAR(20),
-    poste VARCHAR(50) NOT NULL,
-    salaire DECIMAL(10,2) NOT NULL,
-    date_embauche DATE NOT NULL,
-    departement VARCHAR(50) NOT NULL
+    poste VARCHAR(50),
+    salaire DECIMAL(10,2)
 );
 
-CREATE TABLE IF NOT EXISTS clients (
-    client_id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(50) NOT NULL,
-    prenom VARCHAR(50) NOT NULL,
-    societe VARCHAR(100) NOT NULL,
-    contact VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+CREATE TABLE clients (
+    client_id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100),
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     telephone VARCHAR(20),
-    adresse TEXT,
-    date_ajout DATE NOT NULL
+    adresse VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS documents (
-    document_id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE documents (
+    document_id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(100) NOT NULL,
     description_fichier TEXT,
     chemin_fichier VARCHAR(255) NOT NULL,
-    date_upload TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    type_fichier VARCHAR(50),
+    related_to ENUM('employe', 'client') NOT NULL,
+    related_id INT NOT NULL,
+    date_upload TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    uploaded_by INT,
+    FOREIGN KEY (uploaded_by) REFERENCES employes(employe_id) ON DELETE CASCADE
 );
