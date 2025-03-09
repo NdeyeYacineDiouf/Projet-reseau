@@ -1,5 +1,5 @@
 <?php
-require_once '../base-donnees/connexion.php';
+require_once '../../base-donnees/connexion.php';
 
 if (!isset($_GET['id'])) {
     die("Paramètre 'id' manquant dans l'URL.");

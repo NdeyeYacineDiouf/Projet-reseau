@@ -1,6 +1,6 @@
 <?php
 
-require_once '../base-donnees/connexion.php';
+require_once '../../base-donnees/connexion.php';
 
 try {
     $stmt = $pdo->query("SELECT employe_id, nom, prenom, email, telephone, poste, salaire FROM employes");

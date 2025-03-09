@@ -1,5 +1,5 @@
 <?php
-require_once '../base-donnees/connexion.php'; 
+require_once '../../base-donnees/connexion.php'; 
 
 try {
     $stmt = $pdo->query("SELECT client_id, nom, prenom, email, telephone, adresse FROM clients");
