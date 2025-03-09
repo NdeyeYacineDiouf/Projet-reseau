@@ -1,10 +1,5 @@
 <?php
-echo "Le script s'exécute bien !";
-exit;
-?>
-
-<?php
-require_once '../base-donnees/connexion.php'; 
+require_once '../../base-donnees/connexion.php'; 
 
 $message = "";
 
