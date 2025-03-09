@@ -161,17 +161,17 @@ try {
         <div class="card">
             <h3>Employés</h3>
             <div class="count"><?php echo $employe_count; ?></div>
-            <a href="employe/index.php">Gérer</a>
+            <a href="employe/read.php">Gérer</a>
         </div>
         <div class="card">
             <h3>Clients</h3>
             <div class="count"><?php echo $client_count; ?></div>
-            <a href="clients/index.php">Gérer</a>
+            <a href="client/read.php">Gérer</a>
         </div>
         <div class="card">
             <h3>Documents</h3>
             <div class="count"><?php echo $document_count; ?></div>
-            <a href="documents/index.php">Gérer</a>
+            <a href="document/read.php">Gérer</a>
         </div>
     </div>
 
@@ -186,12 +186,12 @@ try {
             <div class="action-box">
                 <h4>Nouveau client</h4>
                 <p>Ajouter un nouveau client dans la base de données.</p>
-                <a href="clients/create.php">Créer</a>
+                <a href="client/create.php">Créer</a>
             </div>
             <div class="action-box">
                 <h4>Nouveau document</h4>
                 <p>Ajouter un document lié à un employé ou un client.</p>
-                <a href="documents/create.php">Créer</a>
+                <a href="document/create.php">Créer</a>
             </div>
         </div>
     </div>
