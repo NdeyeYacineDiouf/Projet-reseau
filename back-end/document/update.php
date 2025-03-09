@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <nav class="navbar">
     <ul>
-        <li><a href="../index.php">Accueil</a></li>
+        <li><a href="../../index.php">Accueil</a></li>
         <li><a href="../employe/read.php">Employés</a></li>
         <li><a href="../client/read.php">Clients</a></li>
         <li><a href="../document/read.php">Documents</a></li>
@@ -172,7 +172,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Mettre à jour</button>
     </form>
-    <!-- Lien pour visualiser le document -->
     <a class="view-link" href="<?= htmlspecialchars($document['chemin_fichier']) ?>" target="_blank">Visualiser le document</a>
 </div>
 </body>

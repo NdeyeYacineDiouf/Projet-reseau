@@ -95,7 +95,7 @@ try {
 
 <nav class="navbar">
     <ul>
-        <li><a href="../index.php">Accueil</a></li>
+        <li><a href="../../index.php">Accueil</a></li>
         <li><a href="../employe/read.php">Employés</a></li>
         <li><a href="../client/read.php">Clients</a></li>
         <li><a href="../document/read.php">Documents</a></li>
