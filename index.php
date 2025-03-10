@@ -26,6 +26,27 @@ try {
 } catch (PDOException $e) {
 
 }
+
+$ftp_server = "192.168.1.14";  
+$ftp_username = "ftpuser";  
+$ftp_password = "passer";  
+$ftp_conn = ftp_connect($ftp_server) or die("Impossible de se connecter à $ftp_server");
+$login = ftp_login($ftp_conn, $ftp_username, $ftp_password);
+
+if (!$login) {
+    echo "Impossible de se connecter au serveur FTP.";
+    exit();
+}
+
+$ftp_directory = "/home/ftpuser/ftp"; 
+ftp_chdir($ftp_conn, $ftp_directory);
+
+$documents = ftp_nlist($ftp_conn, ".");
+
+$document_count = count($documents);
+
+ftp_close($ftp_conn);
+
 ?>
 
 <!DOCTYPE html>
